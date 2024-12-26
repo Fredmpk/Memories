@@ -1,9 +1,9 @@
-import Image from "next/image";
+import AddCategory from "@/components/add-category";
+import getCategories from "@/lib/utils/fetch-categories";
 import Link from "next/link";
 
-const categories = ["Flüche", "Biologie", "Natur", "Spazieren", "Sprache"];
-
-export default function Home() {
+export default async function Home() {
+  const categories = await getCategories();
   return (
     <div className="bg-[url('/kollage-mama.jpg')] min-h-screen w-full animate-float">
       <h1 className="text-5xl flex justify-center p-4 font-bold">
@@ -12,19 +12,17 @@ export default function Home() {
       <div className="grid grid-cols-2 gap-3 m-4">
         {categories.map((category) => (
           <Link
-            href={`/category/${category
+            href={`/category/${category.name
               .toLowerCase()
               .replace(/ö/g, "oe")
               .replace(/ü/g, "ue")
               .replace(/ä/g, "ae")}}`}
             className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
           >
-            <p className="">{category}</p>
+            <p className="">{category.name}</p>
           </Link>
         ))}
-        <div className="p-3 bg-zinc-100 rounded-xl text-2xl opacity-80 flex justify-center font-bold">
-          <p className="p-0">Hinzufügen</p>
-        </div>
+        <AddCategory />
       </div>
     </div>
   );
