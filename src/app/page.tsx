@@ -12,11 +12,7 @@ export default async function Home() {
       <div className="grid grid-cols-2 gap-3 m-4">
         {categories.map((category) => (
           <Link
-            href={`/category/${category.name
-              .toLowerCase()
-              .replace(/ö/g, "oe")
-              .replace(/ü/g, "ue")
-              .replace(/ä/g, "ae")}}`}
+            href={`/category/${category.id}`}
             className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
           >
             <p className="">{category.name}</p>
