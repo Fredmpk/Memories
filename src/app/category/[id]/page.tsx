@@ -11,7 +11,12 @@ import {
 import getMemories from "@/lib/utils/get-memories";
 import AddMemory from "@/components/add-memory";
 
-export default async function Category({ params }: { params: { id: string } }) {
+type CategoryProps = {
+  params: {
+    id: string;
+  };
+};
+export default async function Category({ params }: CategoryProps) {
   const category = await getCategory(params.id);
 
   const memories = await getMemories(params.id);
