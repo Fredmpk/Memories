@@ -11,12 +11,17 @@ import {
 import getMemories from "@/lib/utils/get-memories";
 import AddMemory from "@/components/add-memory";
 
-type CategoryProps = {
-  params: {
-    id: string;
-  };
-};
-export default async function Category({ params }: CategoryProps) {
+// type CategoryProps = {
+//   params: {
+//     id: string;
+//   };
+// };
+export default async function Category({
+  params,
+}: {
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const category = await getCategory(params.id);
 
   const memories = await getMemories(params.id);
