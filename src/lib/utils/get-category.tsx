@@ -2,6 +2,7 @@ import { prisma } from "../db";
 
 export default async function getCategory(paramsId: string) {
   try {
+    console.log("paramsId:", paramsId);
     const category = await prisma.category.findUnique({
       where: { id: paramsId },
     });

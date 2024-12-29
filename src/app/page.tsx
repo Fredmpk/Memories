@@ -10,14 +10,18 @@ export default async function Home() {
         <p className="bg-zinc-50 rounded-2xl p-3 opacity-80">Erinnerungsbuch</p>
       </h1>
       <div className="grid grid-cols-2 gap-3 m-4">
-        {categories.map((category) => (
-          <Link
-            href={`/category/${category.id}`}
-            className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
-          >
-            <p className="">{category.name}</p>
-          </Link>
-        ))}
+        {categories.map((category) => {
+          console.log("Category:", category);
+          return (
+            <Link
+              key={category.id}
+              href={`/category/${category.id}`}
+              className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
+            >
+              <p className="">{category.name}</p>
+            </Link>
+          );
+        })}
         <AddCategory />
       </div>
     </div>
