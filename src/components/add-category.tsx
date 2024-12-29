@@ -27,6 +27,7 @@ export default function AddCategory() {
     },
   });
   const [error, setError] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const onSubmit = async (data: Category) => {
     try {
@@ -42,22 +43,24 @@ export default function AddCategory() {
 
   return (
     <div className="p-3 bg-zinc-100 rounded-xl text-2xl opacity-80 flex justify-center font-bold">
-      <Dialog>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger>Hinzufügen</DialogTrigger>
         <DialogContent className="bg-zinc-100 w-[90vw] p-5">
           <DialogHeader>
             <DialogTitle hidden>Kategorie hinzufügen</DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col justify-center items-center"
+          >
             <Input
               type="text"
               placeholder="Kategorie"
               {...register("name", { required: true })}
+              className="my-5"
             />
-            <DialogClose>
-              <Button type="submit">hinzufügen</Button>
-            </DialogClose>
+            <Button type="submit">hinzufügen</Button>
           </form>
         </DialogContent>
       </Dialog>
