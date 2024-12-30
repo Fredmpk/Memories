@@ -14,8 +14,8 @@ export default async function Home() {
           console.log("Category:", category);
           return (
             <Link
-              key={category.id}
               href={`/category/${category.id}`}
+              key={category.id}
               className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
             >
               <p className="">{category.name}</p>
