@@ -2,6 +2,9 @@ import AddCategory from "@/components/add-category";
 import getCategories from "@/lib/utils/fetch-categories";
 import Link from "next/link";
 
+// In your page file
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const categories = await getCategories();
   if (categories.length === 0) {

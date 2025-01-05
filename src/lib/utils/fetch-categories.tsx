@@ -1,6 +1,11 @@
 import { prisma } from "../db";
 
 export default async function getCategories() {
-  const categories = await prisma.category.findMany();
-  return categories;
+  try {
+    const categories = await prisma.category.findMany();
+    return categories;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    throw error;
+  }
 }
