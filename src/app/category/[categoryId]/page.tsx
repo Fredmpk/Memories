@@ -54,7 +54,7 @@ export default async function Category({
           ))}
         </CarouselContent>
         <CarouselPrevious className="bg-zinc-50" />
-        <CarouselNext className="bg-zinc-50" />
+        <CarouselNext className="bg-zinc-50 " />
       </Carousel>
     </div>
   );
