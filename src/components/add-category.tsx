@@ -35,6 +35,7 @@ export default function AddCategory() {
 
       reset();
       router.refresh();
+      setIsOpen(false);
     } catch (error) {
       setError("Error creating Category");
       console.error("Error creating Category", error);
