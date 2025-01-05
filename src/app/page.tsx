@@ -21,9 +21,11 @@ export default async function Home() {
               <Link
                 href={`/category/${category.id}`}
                 key={category.id}
-                className="p-3 bg-zinc-100 rounded-xl text-4xl opacity-80 flex justify-center"
+                className="p-3 bg-zinc-100 rounded-xl text-xl opacity-80 flex justify-center"
               >
-                <p className="">{category.name}</p>
+                <p className="overflow-hidden whitespace-normal break-words text-center">
+                  {category.name}
+                </p>
               </Link>
             );
           })
