@@ -9,7 +9,19 @@ export default async function Home() {
   const categories = await getCategories();
   if (categories.length === 0) {
     console.log("No categories found");
-    return <div>No categories found</div>;
+    return (
+      <div className="bg-[url('/kollage-mama.jpg')] min-h-screen w-full animate-float">
+        <h1 className="text-5xl flex justify-center p-4 font-bold">
+          <p className="bg-zinc-50 rounded-2xl p-3 opacity-80">
+            Erinnerungsbuch
+          </p>
+        </h1>
+        <div className="grid grid-cols-2 gap-3 m-4">
+          <p>No categorys found</p>
+          <AddCategory />
+        </div>
+      </div>
+    );
   }
 
   return (
