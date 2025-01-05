@@ -44,7 +44,7 @@ export default async function Category({
                       name="Text"
                       id="index"
                       placeholder={memory.text}
-                      className="text-2xl italic flex-1 w-full"
+                      className="text-2xl italic flex-1 w-full placeholder-black placeholder:italic p-2"
                     ></textarea>
                   </CardContent>
                 </Card>
