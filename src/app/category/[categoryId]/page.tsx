@@ -26,9 +26,10 @@ export default async function Category({
   }
   return (
     <div className="bg-[url('/kollage-mama.jpg')]  animate-float flex flex-col justify-center items-center w-full min-h-screen">
-      <h1 className="text-6xl flex justify-center p-4 font-bold">
-        <p className="bg-zinc-50 rounded-2xl p-3 opacity-80">{category.name}</p>
+      <h1 className="text-4xl m-4 font-bold text-center bg-zinc-50 rounded-2xl p-3 opacity-80 whitespace-normal break-words max-w-full">
+        {category.name}
       </h1>
+
       <AddMemory categoryId={resolvedParams.categoryId} />
 
       <Carousel className="w-[80vw] bg-zinc-100 opacity-95 m-5">
