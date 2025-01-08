@@ -26,13 +26,13 @@ export default async function Category({
   }
   return (
     <div className="bg-[url('/kollage-mama.jpg')]  animate-float flex flex-col justify-center items-center w-full min-h-screen">
-      <h1 className="text-4xl m-4 font-bold text-center bg-zinc-50 rounded-2xl p-3 opacity-80 whitespace-normal break-words max-w-full">
+      <h1 className="text-4xl m-4 font-bold text-center bg-black text-white rounded-2xl p-3 opacity-80 whitespace-normal break-words max-w-full">
         {category.name}
       </h1>
 
       <AddMemory categoryId={resolvedParams.categoryId} />
 
-      <Carousel className="w-[80vw] bg-zinc-100 opacity-95 m-5">
+      <Carousel className="w-[80vw]bg-black text-white  opacity-95 m-5">
         <CarouselContent>
           {memories
             .slice()
@@ -41,7 +41,7 @@ export default async function Category({
               <CarouselItem key={index} className="w-[90vw]">
                 <div className="p-1">
                   <Card className="h-[70vh]">
-                    <CardContent className="flex flex-col  items-center justify-center p-6 h-full">
+                    <CardContent className="flex flex-col  items-center justify-center p-6 h-full bg-black text-white ">
                       <h1 className="text-3xl font-bold mb-3">
                         {memory.title}
                       </h1>
@@ -50,8 +50,11 @@ export default async function Category({
                         name="Text"
                         id="index"
                         placeholder={memory.text}
-                        className="text-2xl italic flex-1 w-full placeholder-black placeholder:italic p-2"
+                        className="text-2xl italic flex-1 w-full bg-zinc-800 placeholder-white placeholder:italic p-2"
                       ></textarea>
+                      <h2 className="text-3xl font-bold mb-3">
+                        {memory.author}
+                      </h2>
                     </CardContent>
                   </Card>
                 </div>

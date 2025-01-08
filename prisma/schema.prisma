@@ -17,6 +17,7 @@ model Memory {
   id         String    @id @default(uuid())
   title      String
   text       String
+  author     String
   categoryId String?
   Category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }
