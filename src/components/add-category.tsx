@@ -43,7 +43,7 @@ export default function AddCategory() {
   };
 
   return (
-    <div className="p-3 bg-zinc-100 rounded-xl text-2xl opacity-80 flex justify-center font-bold">
+    <div className="p-3 bg-black text-white rounded-xl text-2xl opacity-80 flex justify-center font-bold">
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger>Hinzufügen</DialogTrigger>
         <DialogContent className="bg-zinc-100 w-[90vw] p-5">
