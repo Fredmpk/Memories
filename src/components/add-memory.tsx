@@ -58,8 +58,12 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
     <div>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
-          <Button className="bg-zinc-100 text-2xl opacity-80">
-            Erinnerung schreiben
+          <Button
+            variant="secondary"
+            className="bg-zinc-800 text-white  text-2xl opacity-90 flex-col h-full"
+          >
+            <p>Erinnerung</p>
+            <p>schreiben</p>
           </Button>
         </DialogTrigger>
         <DialogContent className="bg-white w-[90vw]">
