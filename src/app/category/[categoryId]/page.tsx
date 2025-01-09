@@ -32,7 +32,7 @@ export default async function Category({
 
       <AddMemory categoryId={resolvedParams.categoryId} />
 
-      <Carousel className="w-[80vw]bg-black text-white  opacity-95 m-5">
+      <Carousel className="w-[80vw] bg-black text-white  opacity-95 m-5">
         <CarouselContent>
           {memories
             .slice()
