@@ -9,7 +9,7 @@ export default async function Home() {
   const categories = await getCategories();
 
   return (
-    <div className="bg-[url('/kollage-mama.jpg')] min-h-screen w-full animate-float">
+    <div className="bg-[url('/kollage-mama.jpeg')] min-h-screen w-full animate-float">
       <h1 className="text-5xl flex justify-center p-4 font-bold">
         <p className="bg-black text-white rounded-2xl p-3 opacity-80">
           Erinnerungsbuch

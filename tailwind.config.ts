@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        float: "float 250s ease-in-out infinite alternate",
+        float: "float 200s ease-in-out infinite alternate",
       },
     },
   },
