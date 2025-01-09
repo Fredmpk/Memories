@@ -11,14 +11,19 @@
     "seed": "ts-node --transpile-only prisma/seed.ts"
   },
   "dependencies": {
+    "@nextui-org/select": "^2.4.9",
+    "@nextui-org/system": "^2.4.6",
+    "@nextui-org/theme": "^2.4.5",
     "@prisma/client": "^6.1.0",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-select": "^2.1.4",
     "@radix-ui/react-slot": "^1.1.1",
     "@vercel/kv": "^3.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.1",
+    "framer-motion": "^11.16.3",
     "install": "^0.13.0",
     "lucide-react": "^0.469.0",
     "mama-memories": ".",
@@ -46,5 +51,8 @@
   },
   "prisma": {
     "seed": "bun prisma/seed.ts"
-  }
+  },
+  "trustedDependencies": [
+    "mama-memories"
+  ]
 }

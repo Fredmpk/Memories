@@ -1,5 +1,7 @@
 import AddCategory from "@/components/add-category";
-import getCategories from "@/lib/utils/fetch-categories";
+import DeleteCategory from "@/components/delete-category";
+import getCategories from "@/lib/utils/get-categories";
+import getEmptyCategories from "@/lib/utils/get-empty-categories";
 import Link from "next/link";
 
 // In your page file
@@ -7,6 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const categories = await getCategories();
+  const emptyCategories = await getEmptyCategories();
 
   return (
     <div className="bg-[url('/kollage-mama.jpeg')] min-h-screen w-full animate-float">
@@ -18,7 +21,6 @@ export default async function Home() {
       <div className="grid grid-cols-2 gap-3 m-4">
         {categories && categories.length > 0 ? (
           categories.map((category) => {
-            console.log("Category:", category);
             return (
               <Link
                 href={`/category/${category.id}`}
@@ -36,6 +38,7 @@ export default async function Home() {
         )}
         <AddCategory />
       </div>
+      <DeleteCategory emptyCategories={emptyCategories} />
     </div>
   );
 }

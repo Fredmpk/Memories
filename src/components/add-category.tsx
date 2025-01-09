@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createCategory } from "@/lib/utils/create-category";
-import getCategories from "@/lib/utils/fetch-categories";
+import getCategories from "@/lib/utils/get-categories";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useRouter } from "next/navigation";
 
