@@ -52,6 +52,9 @@ export default async function Category({
                         placeholder={memory.text}
                         className="text-2xl italic flex-1 w-full bg-zinc-800 placeholder-white placeholder:italic p-2"
                       ></textarea>
+                      <h2 className="text-3xl font-bold mb-3">
+                        {memory.author}
+                      </h2>
                     </CardContent>
                   </Card>
                 </div>

@@ -21,6 +21,7 @@ export type Memory = {
   id: string;
   title: string;
   text: string;
+  author: string;
   categoryId: string;
 };
 
@@ -33,6 +34,7 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
       id: "",
       title: "",
       text: "",
+      author: "",
       categoryId: categoryId,
     },
   });
@@ -78,6 +80,11 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
               id="message"
               className="min-h-[40vh]"
               {...register("text", { required: true })}
+            />
+            <Textarea
+              placeholder="Autor*in"
+              id="message"
+              {...register("author")}
             />
             <Button type="submit">hinzufügen</Button>
           </form>
