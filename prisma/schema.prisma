@@ -15,9 +15,9 @@ model Category {
 
 model Memory {
   id         String    @id @default(uuid())
-  title      String
+  title      String?
   text       String
-  author     String
+  author     String?
   categoryId String?
   Category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }
