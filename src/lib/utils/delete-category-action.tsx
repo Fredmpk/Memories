@@ -3,7 +3,7 @@
 import { prisma } from "../db";
 import { revalidatePath } from "next/cache";
 
-export default async function deleteCategoryQuery(categoryId: string) {
+export default async function deleteCategoryAction(categoryId: string) {
   try {
     await prisma.category.delete({
       where: { id: categoryId },

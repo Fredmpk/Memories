@@ -20,7 +20,7 @@ import {
 import getEmptyCategories from "@/lib/utils/get-empty-categories";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { useForm } from "react-hook-form";
-import deleteCategoryQuery from "@/lib/utils/delete-category-query";
+import deleteCategoryAction from "@/lib/utils/delete-category-action";
 
 type FormData = {
   categoryId: string;
@@ -39,7 +39,7 @@ export default function DeleteCategory({
   const onSubmit = async () => {
     if (!selectedCategory) return;
 
-    const result = await deleteCategoryQuery(selectedCategory);
+    const result = await deleteCategoryAction(selectedCategory);
 
     if (result.success) {
       setOpen(false);
