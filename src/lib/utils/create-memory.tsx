@@ -10,6 +10,7 @@ export async function createMemory(data: Memory) {
         title: data.title,
         text: data.text,
         categoryId: data.categoryId,
+        author: data.author,
       },
     });
     return newMemory;
