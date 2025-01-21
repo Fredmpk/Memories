@@ -1,7 +1,7 @@
 "use server";
 
-import { Memory } from "@/components/add-memory";
 import { prisma } from "../db";
+import { Memory } from "../types";
 
 export async function createMemory(data: Memory) {
   try {

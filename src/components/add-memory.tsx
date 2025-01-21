@@ -3,18 +3,14 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { prisma } from "@/lib/db";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { createMemory } from "@/lib/utils/create-memory";
-import HTMLFlipBook from "react-pageflip";
 import { useRouter } from "next/navigation";
 import { Memory } from "@/lib/types";
 
