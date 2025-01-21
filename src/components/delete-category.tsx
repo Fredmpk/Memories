@@ -35,15 +35,25 @@ export default function DeleteCategory({
   const [open, setOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const { handleSubmit, reset } = useForm<FormData>();
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const onSubmit = async () => {
     if (!selectedCategory) return;
 
-    const result = await deleteCategoryAction(selectedCategory);
+    try {
+      setIsDeleting(true);
+      const result = await deleteCategoryAction(selectedCategory);
 
-    if (result.success) {
-      setOpen(false);
-      reset();
+      if (result.success) {
+        setOpen(false);
+        reset();
+      } else {
+        console.error("failed to delete category:", result.error);
+      }
+    } catch (error) {
+      console.error("Error deleting category:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -101,8 +111,9 @@ export default function DeleteCategory({
                     variant="outline"
                     className="text-black bg-red-200"
                     type="submit"
+                    disabled={isDeleting}
                   >
-                    Final Löschen
+                    {isDeleting ? "...Löschen" : "Final Löschen"}
                   </Button>
                 </CardFooter>
               </CardContent>
