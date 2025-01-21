@@ -7,14 +7,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Card, CardContent } from "@/components/ui/card";
 import DeleteMemory from "./delete-memory";
-
-type Memory = {
-  id: string;
-  title: string | null;
-  text: string;
-  author: string | null;
-  categoryId: string | null;
-};
+import UpdateMemory from "./update-memory";
+import { Memory } from "@/lib/types";
 
 export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
   return (
@@ -53,8 +47,10 @@ export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
                     className="text-2xl italic flex-1 w-full bg-zinc-800 placeholder-white placeholder:italic p-3"
                   ></textarea>
                   <h2 className="text-3xl font-bold my-3">{memory.author}</h2>
-
-                  <DeleteMemory memoryId={memory.id} />
+                  <div className="flex gap-2 items-center justify-center">
+                    <UpdateMemory memory={memory}></UpdateMemory>
+                    <DeleteMemory memoryId={memory.id} />
+                  </div>
                 </CardContent>
               </Card>
             </div>

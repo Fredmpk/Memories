@@ -3,32 +3,28 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { prisma } from "@/lib/db";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { createMemory } from "@/lib/utils/create-memory";
-import HTMLFlipBook from "react-pageflip";
 import { useRouter } from "next/navigation";
+import { updateMemoryAction } from "@/lib/utils/update-memory-action";
 import { Memory } from "@/lib/types";
 
-type AddMemoryProps = {
-  categoryId: string;
+type UpdateMemoryProps = {
+  memory: Memory;
 };
-export default function AddMemory({ categoryId }: AddMemoryProps) {
+export default function UpdateMemory({ memory }: UpdateMemoryProps) {
   const { register, handleSubmit, reset } = useForm<Memory>({
     defaultValues: {
-      id: "",
-      title: "",
-      text: "",
-      author: "",
-      categoryId: categoryId,
+      id: memory.id,
+      title: memory.title || "",
+      text: memory.text,
+      author: memory.author || "",
+      categoryId: memory.categoryId || "",
     },
   });
   const [error, setError] = useState<string | null>(null);
@@ -38,15 +34,17 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
     try {
       const memoryData = {
         ...data,
-        categoryId: categoryId,
+        title: data.title || null,
+        author: data.author || null,
+        categoryId: data.categoryId || null,
       };
-      await createMemory(memoryData);
+      await updateMemoryAction(memoryData);
       reset();
       setIsOpen(false);
       router.refresh();
     } catch (error) {
-      setError("Error creating memory");
-      console.error("Error creating memory", error);
+      setError("Error updating memory");
+      console.error("Error updating memory", error);
     }
   };
   return (
@@ -55,17 +53,19 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
         <DialogTrigger asChild>
           <Button
             variant="secondary"
-            className="bg-emerald-500 text-black  text-xl flex-col h-full p-3"
+            className="bg-amber-500 text-black  text-xl"
           >
-            <p>Erinnerung hinzufügen</p>
+            <p>bearbeiten</p>
           </Button>
         </DialogTrigger>
         <DialogContent className="bg-white w-[90vw]">
-          <DialogTitle>Die Erinnerung</DialogTitle>
+          <DialogTitle>Die Erinnerung bearbeiten</DialogTitle>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="grid w-full gap-1.5 p-2"
           >
+            <input type="hidden" {...register("id")} />
+            <input type="hidden" {...register("categoryId")} />
             <Textarea placeholder="Titel" id="message" {...register("title")} />
             <Textarea
               placeholder="Schreibe deine Erinnerung hier"
@@ -78,40 +78,16 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
               id="message"
               {...register("author")}
             />
-            <Button type="submit">hinzufügen</Button>
+            <p className="font-bold text-red-400">
+              Ganz sicher dass du es so ändern willst? Die vorherige Version
+              wird unwiederbringlich gelöscht, wennn du hier klickst:
+            </p>
+            <Button type="submit" className="bg-red-700">
+              Änderung sichern
+            </Button>
           </form>
         </DialogContent>
       </Dialog>
-      {/* <HTMLFlipBook
-        width={300}
-        height={500}
-        autoSize={true}
-        maxShadowOpacity={0.5}
-        showCover={true}
-        mobileScrollSupport={true}
-        minWidth={300}
-        maxWidth={600}
-        minHeight={500}
-        maxHeight={800}
-        className="flipbook"
-        style={{ margin: "auto" }}
-        startPage={0}
-        size="stretch"
-        drawShadow={false}
-        flippingTime={1000}
-        usePortrait={false}
-        startZIndex={0}
-        clickEventForward={true}
-        useMouseEvents={true}
-        swipeDistance={50}
-        showPageCorners={true}
-        disableFlipByClick={false}
-      >
-        <div className="demoPage">Page 1</div>
-        <div className="demoPage">Page 2</div>
-        <div className="demoPage">Page 3</div>
-        <div className="demoPage">Page 4</div>
-      </HTMLFlipBook> */}
     </div>
   );
 }
