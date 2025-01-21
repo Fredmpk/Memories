@@ -23,7 +23,6 @@ export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
         modules={[Navigation, Pagination]}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
@@ -35,7 +34,7 @@ export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
             "--swiper-pagination-bullet-inactive-opacity": "1" as any,
             "--swiper-pagination-bullet-size": "12px",
             "--swiper-pagination-bullet-horizontal-gap": "6px",
-            "--swiper-pagination-bullet-vertical-gap": "6px",
+            "--swiper-pagination-bullet-ver-gap": "6px",
           } as React.CSSProperties
         }
       >

@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 @keyframes float {
-  0% { background-position: 0 0; }
+  0% { background-position: var(--bg-start); }
   100% { background-position: 100% 100%; }
 }
