@@ -99,7 +99,7 @@ export default function DeleteCategory({
                 <CardFooter className="text-white">
                   <Button
                     variant="outline"
-                    className="text-black bg-red-300"
+                    className="text-black bg-red-200"
                     type="submit"
                   >
                     Final Löschen

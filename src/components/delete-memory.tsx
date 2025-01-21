@@ -38,7 +38,7 @@ export default function DeleteMemory({ memoryId }: { memoryId: string }) {
     <div className="mt-1">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="destructive" className=" text-xl bg-red-700 px-4">
+          <Button variant="destructive" className=" text-xl bg-red-600 px-4">
             Erinnerung löschen
           </Button>
         </DialogTrigger>
