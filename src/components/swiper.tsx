@@ -12,7 +12,7 @@ import { Memory } from "@/lib/types";
 
 export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
   return (
-    <div className="w-[80vw]">
+    <div className="w-[95vw]">
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={50}
@@ -33,10 +33,10 @@ export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
         }
       >
         {memories.map((memory, index) => (
-          <SwiperSlide key={memory.id} className="w-[90vw]">
+          <SwiperSlide key={memory.id} className="">
             <div className="p-1">
               <Card className="h-[72vh]">
-                <CardContent className="flex flex-col  items-center justify-center px-6 pt-3 h-full bg-black text-white ">
+                <CardContent className="flex flex-col  items-center justify-center px-3 pt-3 h-full bg-black text-white ">
                   <h1 className="text-2xl font-bold mb-5">{memory.title}</h1>
 
                   <textarea
