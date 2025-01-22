@@ -35,8 +35,8 @@ export default function MemoriesSwiper({ memories }: { memories: Memory[] }) {
         {memories.map((memory, index) => (
           <SwiperSlide key={memory.id} className="">
             <div className="p-1">
-              <Card className="h-[72vh]">
-                <CardContent className="flex flex-col  items-center justify-center px-3 pt-3 h-full bg-black text-white ">
+              <Card className="h-[72vh] rounded-xl">
+                <CardContent className="flex flex-col  items-center justify-center px-3 pt-3 h-full bg-black text-white rounded-xl ">
                   <h1 className="text-2xl font-bold mb-5">{memory.title}</h1>
 
                   <textarea
