@@ -51,7 +51,7 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
         <DialogTrigger asChild>
           <Button
             variant="secondary"
-            className="bg-emerald-500 text-black  text-xl flex-col h-full p-3"
+            className="bg-emerald-500 text-black  text-xl flex-col h-full p-2"
           >
             <p>Erinnerung hinzufügen</p>
           </Button>

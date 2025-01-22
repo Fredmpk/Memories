@@ -32,7 +32,7 @@ export default async function Category({
   return (
     <FloatingBackground>
       <div className=" flex flex-col justify-center items-center ">
-        <h1 className="text-4xl m-4 font-bold text-center bg-black text-white rounded-2xl p-3 opacity-80 whitespace-normal break-words max-w-full">
+        <h1 className="text-2xl mx-3 mt-3 mb-2 font-bold text-center bg-black text-white rounded-2xl p-2 opacity-80 whitespace-normal break-words max-w-full">
           {category.name}
         </h1>
         <AddMemory categoryId={category.id} />
