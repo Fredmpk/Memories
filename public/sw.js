@@ -10,8 +10,6 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("push", function (event) {
-  const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
-  console.log("VAPID Public Key in Service Worker:", vapidPublicKey);
   console.log("Push event received!", event);
 
   let payload;
@@ -59,7 +57,7 @@ self.addEventListener("notificationclick", function (event) {
   console.log("Notification clicked:", event);
   event.notification.close();
 
-  const urlToOpen = event.notification.data.url || "/";
+  const urlToOpen = event.notification.data?.url || "/";
 
   event.waitUntil(
     clients.matchAll({ type: "window" }).then((clientList) => {
