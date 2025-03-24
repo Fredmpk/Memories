@@ -16,7 +16,14 @@ export default function NotificationSubscribe() {
 
   useEffect(() => {
     console.log("VAPID Public Key:", process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY);
-    console.log("All Environment Variables:", process.env);
+    console.log(
+      "Key defined?",
+      typeof process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY !== "undefined"
+    );
+    console.log(
+      "Key length:",
+      process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY?.length
+    );
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
@@ -55,7 +62,9 @@ export default function NotificationSubscribe() {
       console.log("Starting subscription process...");
       const registration = await navigator.serviceWorker.ready;
       console.log("Service worker ready:", registration);
-
+      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || "";
+      console.log("VAPID Key at subscription time:", vapidKey);
+      console.log("VAPID Key is empty?", vapidKey === "");
       const permission = await Notification.requestPermission();
       console.log("Notification permission:", permission);
       if (permission !== "granted") {
@@ -63,7 +72,6 @@ export default function NotificationSubscribe() {
         return;
       }
 
-      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || "";
       console.log("VAPID Key:", process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY);
 
       if (!vapidKey) {
