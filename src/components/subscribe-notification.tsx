@@ -15,6 +15,7 @@ export default function NotificationSubscribe() {
   const [isSupported, setIsSupported] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log("Client VAPID Key:", process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY);
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/sw.js")
@@ -118,7 +119,7 @@ export default function NotificationSubscribe() {
       ) : (
         <button
           onClick={subscribe}
-          className="fixed bottom-20 left-0 right-0 mx-auto w-1/2 text-xl bg-blue-700 rounded-lg p-1"
+          className="fixed bottom-20 left-0 right-0 mx-auto w-1/2 text-xl bg-zinc-100 rounded-lg p-1"
         >
           Benachrichtigung bei neuen Einträgen aktivieren
         </button>
