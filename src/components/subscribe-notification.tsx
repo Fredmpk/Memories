@@ -16,6 +16,8 @@ export default function NotificationSubscribe() {
 
   useEffect(() => {
     console.log("VAPID Public Key:", process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY);
+    console.log("All Environment Variables:", process.env);
+
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/sw.js")
