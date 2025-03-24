@@ -1,6 +1,7 @@
 import AddCategory from "@/components/add-category";
 import DeleteCategory from "@/components/delete-category";
 import FloatingBackground from "@/components/floating-bg";
+import NotificationSubscribe from "@/components/subscribe-notification";
 import getCategories from "@/lib/utils/get-categories";
 import getEmptyCategories from "@/lib/utils/get-empty-categories";
 import Link from "next/link";
@@ -41,6 +42,7 @@ export default async function Home() {
           <AddCategory />
         </div>
         <DeleteCategory emptyCategories={emptyCategories} />
+        <NotificationSubscribe />
       </div>
     </FloatingBackground>
   );

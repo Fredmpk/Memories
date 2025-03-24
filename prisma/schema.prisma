@@ -21,3 +21,11 @@ model Memory {
   categoryId String?
   Category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+}

@@ -13,6 +13,7 @@ import { useState } from "react";
 import { createMemory } from "@/lib/utils/create-memory";
 import { useRouter } from "next/navigation";
 import { Memory } from "@/lib/types";
+import { sendNotification } from "@/lib/utils/notifications";
 
 type AddMemoryProps = {
   categoryId: string;
@@ -36,7 +37,14 @@ export default function AddMemory({ categoryId }: AddMemoryProps) {
         ...data,
         categoryId: categoryId,
       };
-      await createMemory(memoryData);
+      const newMemory = await createMemory(memoryData);
+
+      if (newMemory) {
+        await sendNotification(
+          "Neue Erinnerung wurde geschrieben",
+          `Someone added a new memory about ${newMemory.title}`
+        );
+      }
       reset();
       setIsOpen(false);
       router.refresh();
