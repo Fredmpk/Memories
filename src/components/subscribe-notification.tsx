@@ -15,7 +15,6 @@ export default function NotificationSubscribe() {
   const [isSupported, setIsSupported] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log("Client VAPID Key:", process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY);
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/sw.js")
